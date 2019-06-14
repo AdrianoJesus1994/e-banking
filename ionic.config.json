@@ -1,0 +1,7 @@
+{
+  "name": "e-banking",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

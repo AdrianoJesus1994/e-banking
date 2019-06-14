@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-row>
+    <ion-img src="./assets/imgs/your-logo-here.png"></ion-img>
+  </ion-row>
+  <ion-row padding>
+    <ion-col>
+      <ion-item>
+        <ion-label>Titular</ion-label>
+        <ion-select value="brown" okText="Okay" [(ngModel)]="user.holder" cancelText="Dismiss">
+          <ion-select-option selected="true" value="1">1º Titular</ion-select-option>
+          <ion-select-option value="2">2º Titular</ion-select-option>
+          <ion-select-option value="3">3º Titular</ion-select-option>
+          <ion-select-option value="4">4º Titular</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" [ngModel]="user.account">Conta</ion-label>
+        <ion-input type="email" placeholder="email@example.com"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" [(ngModel)]="user.pasword">Password</ion-label>
+        <ion-input type="password" placeholder="*******"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button color="primary" expand="full" size="large" shape="round" (click)="doLogin()">Login</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <!-- <div class="logo">
+      <img src="./assets/imgs/your-logo-here.png" alt="">
+    </div> -->
+</ion-content>
