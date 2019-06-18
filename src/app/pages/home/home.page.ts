@@ -1,6 +1,7 @@
 import { DialogService } from './../../utils/dialog.service';
 import { AuthService } from './../../providers/auth.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 export default class UserAuth {
   account: string;
@@ -19,7 +20,8 @@ export class HomePage {
 
   constructor(
     private auth: AuthService,
-    private dialog: DialogService
+    private dialog: DialogService,
+    private router: Router,
   ) { }
 
   doLogin(): void {
@@ -33,7 +35,7 @@ export class HomePage {
     this.auth.doLogin(this.user.account, this.user.pasword, this.user.holder)
       .then((res) => {
         console.log('Success Login', res);
-        this.dialog.esconderLoading();
+        this.router.navigateByUrl('/balance');
       })
       .catch((e) => {
         console.log('Login Failed', e);

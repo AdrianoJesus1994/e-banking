@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './pages/list/list.module#ListPageModule'
-  }
+  },
+  { path: 'balance', loadChildren: './pages/balance/balance.module#BalancePageModule' }
 ];
 
 @NgModule({

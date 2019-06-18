@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Balance</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item no-lines>
+    <h2>Hello {{user.name}}!</h2>
+  </ion-item>
+  <div *ngIf="balance">
+    <ion-row>
+      <h3><span>Balance - </span> R$ {{balance.balance}}</h3>
+    </ion-row>
+    <ion-row>
+      <h3> <span>Available Limit - </span> R$ {{balance.availableLimit}}</h3>
+    </ion-row>
+    <ion-row>
+      <h3><span>Limit - </span> R$ {{balance.limit}}</h3>
+    </ion-row>
+    <ion-row>
+      <h3><span>Blocked Amount - </span> R$ {{balance.blockedAmount}}</h3>
+    </ion-row>
+  </div>
+
+
+
+</ion-content>

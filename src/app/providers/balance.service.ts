@@ -14,8 +14,9 @@ export class BalanceService {
   getBalance(): Promise<any> {
     return this.rest.request({
       method: 'GET',
-      url: `${environment.BASE}`,
-      headers: this.prepareHeaders()
+      url: `${environment.BASE}user/balance`,
+      headers: this.prepareHeaders(),
+      serialize: 'urlencoded'
     });
   }
 
