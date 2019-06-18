@@ -1,7 +1,8 @@
+import { DialogService } from './../../utils/dialog.service';
 import { AuthService } from './../../providers/auth.service';
 import { Component } from '@angular/core';
 
-export interface UserAuth {
+export default class UserAuth {
   account: string;
   pasword: string;
   holder: number;
@@ -14,22 +15,29 @@ export interface UserAuth {
 })
 export class HomePage {
 
-  user: UserAuth;
+  user: UserAuth = new UserAuth();
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private dialog: DialogService
   ) { }
 
   doLogin(): void {
     console.log('doLogin() called');
-    if (!this.validateInput()) { return; }
+    if (!this.validateInput()) {
+      this.dialog.alert('Campos obrigatórios não foram preenchidos.');
+      return;
+    }
 
-    this.auth.doLogin(this.user.account, this.user.account, this.user.holder)
+    this.dialog.exibirLoading();
+    this.auth.doLogin(this.user.account, this.user.pasword, this.user.holder)
       .then((res) => {
         console.log('Success Login', res);
+        this.dialog.esconderLoading();
       })
       .catch((e) => {
         console.log('Login Failed', e);
+        this.dialog.alert(e.mensagem);
       });
   }
 

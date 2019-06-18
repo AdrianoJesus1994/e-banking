@@ -1,6 +1,6 @@
-import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { RequestOptions, RestProxyService } from './rest-proxy.service';
+import { RestProxyService, RequestOptions } from './rest-proxy.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class AuthService {
     console.log('doLogin() called');
     const options = this.buildRequestLogin();
 
+    // tslint:disable:no-string-literal
     options.body['account'] = accountNumber;
     options.body['password'] = password;
     options.body['holder'] = holder;
@@ -34,6 +35,7 @@ export class AuthService {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
+      body: {}
     };
     return req;
   }

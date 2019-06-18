@@ -99,6 +99,7 @@ export class RestProxyService {
           const response = { ...res };
           this.storeCredentials(res);
           if (responseJson && !!res.data) {
+            // tslint:disable-next-line:no-string-literal
             response['json'] = JSON.parse(res.data);
           }
           resolve(response);
